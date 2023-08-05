@@ -14,19 +14,17 @@ export class App extends React.Component {
     bad: 0
   }
 
-  onBtnClick = (actionType) => {
-    this.setState(prevState => ({
-        [actionType]: prevState[actionType] + 1,
-    }))
+onBtnClick = (actionType) => {
+  this.setState(prevState => ({
+    [actionType]: prevState[actionType] + 1,
+  }))
 }
 
 countTotalFeedback = () => {
-  const total = Object.values(this.state).reduce((prev, nmbr) => prev + nmbr);
-  return total
+  return Object.values(this.state).reduce((prev, nmbr) => prev + nmbr);  
 }
-countPositiveFeedbackPercentage = () => {
-  const positive = Math.floor((this.state.good * 100) / this.countTotalFeedback());
-  return positive;
+countPositiveFeedbackPercentage = () => {  
+  return Math.floor((this.state.good * 100) / this.countTotalFeedback());
 }
 
 render() {
